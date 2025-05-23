@@ -103,7 +103,6 @@ function init() {
 }
 
 
-
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -137,6 +136,8 @@ function onPointerMove(event) {
   }
 }
 
+
+//maus klick?
 function onPointerDown(event) {
   pointer.set(
     (event.clientX / window.innerWidth) * 2 - 1,
@@ -159,7 +160,7 @@ function onPointerDown(event) {
         objects.splice(objects.indexOf(intersect.object), 1);
       }
 
-      // create cube
+      // create and add cube
     } else {
       const voxel = new THREE.Mesh(cubeGeo, cubeMaterial);
       voxel.position.copy(intersect.point).add(intersect.face.normal);
